@@ -408,6 +408,96 @@
     .footer-bottom a { color: var(--text-dim); text-decoration: none; }
     .footer-bottom a:hover { color: var(--green); }
 
+    /* SERVICE BUTTON GROUP */
+    .service-btn-group { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+    .btn-pay { background: var(--green); color: #000; border-color: var(--green); font-weight: 700; cursor: pointer; }
+    .btn-pay:hover { background: #33ee88; border-color: #33ee88; color: #000; }
+    .btn-ticket { font-size: 12px; opacity: 0.7; }
+    .btn-ticket:hover { opacity: 1; }
+
+    /* PAYMENT MODAL */
+    .pay-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(4,8,12,0.88); backdrop-filter: blur(10px);
+      z-index: 500; align-items: center; justify-content: center; padding: 20px;
+    }
+    .pay-overlay.open { display: flex; }
+    .pay-modal {
+      background: var(--bg3); border: 1px solid var(--border2); border-radius: 6px;
+      width: 100%; max-width: 440px; padding: 36px; position: relative;
+      animation: modal-in 0.25s ease;
+    }
+    @keyframes modal-in { from { opacity:0; transform: translateY(16px) scale(0.97); } to { opacity:1; transform: none; } }
+    .pay-modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; color: var(--text-dim);
+      font-size: 20px; cursor: pointer; line-height: 1; transition: color 0.2s;
+    }
+    .pay-modal-close:hover { color: var(--white); }
+    .pay-modal-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--green); border: 1px solid rgba(0,230,118,0.22); background: rgba(0,230,118,0.05);
+      padding: 3px 10px; border-radius: 2px; display: inline-block; margin-bottom: 16px;
+    }
+    .pay-modal h3 { font-size: 1.4rem; margin-bottom: 4px; }
+    .pay-modal-amount { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--green); margin-bottom: 6px; line-height: 1; }
+    .pay-modal-note { font-size: 11px; color: var(--text-mute); margin-bottom: 24px; line-height: 1.6; }
+    .pay-modal-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    .pay-modal-fields input {
+      background: var(--bg2); border: 1px solid var(--border2); border-radius: 3px;
+      padding: 11px 14px; color: var(--white); font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; width: 100%; transition: border-color 0.2s; outline: none;
+    }
+    .pay-modal-fields input::placeholder { color: var(--text-mute); }
+    .pay-modal-fields input:focus { border-color: var(--green); }
+    .pay-modal-fields input.err { border-color: var(--red); }
+    .pay-modal-disclaimer {
+      font-size: 11px; color: var(--text-mute); line-height: 1.7; margin-bottom: 20px;
+      padding: 12px 14px; background: rgba(0,0,0,0.3); border-radius: 3px;
+      border-left: 2px solid var(--border2);
+    }
+    .btn-pay-confirm {
+      width: 100%; padding: 14px; border: none; border-radius: 3px;
+      background: var(--green); color: #000; font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.06em; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-pay-confirm:hover { background: #33ee88; transform: translateY(-1px); }
+    .btn-pay-confirm:disabled { opacity: 0.6; pointer-events: none; }
+
+    /* SUCCESS MODAL */
+    .success-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(4,8,12,0.92); backdrop-filter: blur(12px);
+      z-index: 600; align-items: center; justify-content: center; padding: 20px;
+    }
+    .success-overlay.open { display: flex; }
+    .success-modal {
+      background: var(--bg3); border: 1px solid rgba(0,230,118,0.3); border-radius: 6px;
+      width: 100%; max-width: 400px; padding: 40px 36px; text-align: center;
+      animation: modal-in 0.3s ease;
+    }
+    .success-icon {
+      width: 64px; height: 64px; background: rgba(0,230,118,0.1);
+      border: 1px solid rgba(0,230,118,0.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 28px;
+    }
+    .success-modal h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .success-modal p { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 6px; font-weight: 300; }
+    .success-pid {
+      font-size: 11px; color: var(--text-mute); background: var(--bg2);
+      border: 1px solid var(--border); border-radius: 3px; padding: 8px 12px;
+      margin: 16px 0; font-family: 'JetBrains Mono', monospace; word-break: break-all;
+    }
+    .btn-success-close {
+      width: 100%; padding: 12px; background: var(--green); color: #000; border: none;
+      border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+      font-size: 13px; cursor: pointer; margin-top: 8px; transition: background 0.2s;
+    }
+    .btn-success-close:hover { background: #33ee88; }
+
     /* SCROLL TOP */
     #scroll-top {
       position: fixed; bottom: 28px; right: 28px; width: 40px; height: 40px;
@@ -608,7 +698,7 @@
 
         <div class="service-card reveal">
           <div class="service-name">Starter Setup</div>
-          <div class="service-price"><sup>₹</sup>149<span>+</span></div>
+          <div class="service-price"><sup>₹</sup>149</div>
           <div class="service-desc">A clean foundation for new servers that want a proper, organized starting point.</div>
           <hr class="service-divider">
           <ul class="service-features">
@@ -616,12 +706,15 @@
             <li>Permissions & economy setup</li>
             <li>Clean, organized config</li>
           </ul>
-          <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service">Open Ticket</a>
+          <div class="service-btn-group">
+            <button class="btn-service btn-pay" onclick="openPayModal('Starter Setup', 149)">Pay ₹149</button>
+            <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service btn-ticket">Open Ticket</a>
+          </div>
         </div>
 
         <div class="service-card featured reveal rd1">
           <div class="service-name">Advanced Setup</div>
-          <div class="service-price"><sup>₹</sup>349<span>+</span></div>
+          <div class="service-price"><sup>₹</sup>349</div>
           <div class="service-desc">Full gamemode buildout — balanced, optimized, and ready for players from day one.</div>
           <hr class="service-divider">
           <ul class="service-features">
@@ -630,12 +723,15 @@
             <li>Optimized configurations</li>
             <li>Economy & progression tuning</li>
           </ul>
-          <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service featured-btn">Open Ticket</a>
+          <div class="service-btn-group">
+            <button class="btn-service btn-pay featured-btn" onclick="openPayModal('Advanced Setup', 349)">Pay ₹349</button>
+            <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service btn-ticket">Open Ticket</a>
+          </div>
         </div>
 
         <div class="service-card reveal rd2">
           <div class="service-name">Custom Development</div>
-          <div class="service-price"><sup>₹</sup>799<span>+</span></div>
+          <div class="service-price"><sup>₹</sup>799</div>
           <div class="service-desc">Unique mechanics and features built specifically around your vision.</div>
           <hr class="service-divider">
           <ul class="service-features">
@@ -643,12 +739,15 @@
             <li>Unique server systems</li>
             <li>Scalable by design</li>
           </ul>
-          <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service">Open Ticket</a>
+          <div class="service-btn-group">
+            <button class="btn-service btn-pay" onclick="openPayModal('Custom Development', 799)">Pay ₹799</button>
+            <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service btn-ticket">Open Ticket</a>
+          </div>
         </div>
 
         <div class="service-card reveal rd3">
           <div class="service-name">Optimization</div>
-          <div class="service-price"><sup>₹</sup>199<span>+</span></div>
+          <div class="service-price"><sup>₹</sup>199</div>
           <div class="service-desc">Fix lag, audit plugins, and tune your existing server for better performance.</div>
           <hr class="service-divider">
           <ul class="service-features">
@@ -656,7 +755,10 @@
             <li>Plugin audit & cleanup</li>
             <li>Config tuning</li>
           </ul>
-          <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service">Open Ticket</a>
+          <div class="service-btn-group">
+            <button class="btn-service btn-pay" onclick="openPayModal('Optimization', 199)">Pay ₹199</button>
+            <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="btn-service btn-ticket">Open Ticket</a>
+          </div>
         </div>
 
       </div>
@@ -881,6 +983,133 @@
       sections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
       document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => {
         a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--white)' : '';
+      });
+    });
+  </script>
+
+  <!-- PAYMENT MODAL -->
+  <div class="pay-overlay" id="pay-overlay">
+    <div class="pay-modal">
+      <button class="pay-modal-close" id="pay-close" aria-label="Close">&#x2715;</button>
+      <div class="pay-modal-tag" id="modal-service-tag">Service</div>
+      <h3 id="modal-service-name">Service</h3>
+      <div class="pay-modal-amount" id="modal-amount">&#8377;149</div>
+      <div class="pay-modal-note">Payments processed securely via Razorpay. By paying you agree to our <a href="#terms" onclick="closePayModal()">Terms of Service</a>.</div>
+      <div class="pay-modal-fields">
+        <input type="text" id="pay-name" placeholder="Your name" autocomplete="name" />
+        <input type="email" id="pay-email" placeholder="Your email address" autocomplete="email" />
+        <input type="tel" id="pay-phone" placeholder="Phone number (optional)" autocomplete="tel" />
+      </div>
+      <div class="pay-modal-disclaimer">
+        &#128274; Payments are processed through <strong style="color:var(--text)">Ariba Impex</strong> on behalf of Zenvyte Labs. "Ariba Impex" may appear on your bank statement.
+      </div>
+      <button class="btn-pay-confirm" id="btn-pay-confirm">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Pay Securely
+      </button>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal">
+      <div class="success-icon">&#10003;</div>
+      <h3>Payment Received</h3>
+      <p>Thank you for your order. We will be in touch shortly to get started.</p>
+      <p style="margin-top:8px">Head to our Discord and share your server requirements to kick things off.</p>
+      <div class="success-pid" id="success-pid"></div>
+      <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer"
+         style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:var(--green);color:#000;border:none;border-radius:3px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;cursor:pointer;margin-top:16px;margin-bottom:8px;text-decoration:none;box-sizing:border-box;">
+        Open Discord &#x2192;
+      </a>
+      <button class="btn-success-close" id="success-close">Done</button>
+    </div>
+  </div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var currentService = { name: '', amount: 0 };
+
+    function openPayModal(serviceName, amount) {
+      currentService = { name: serviceName, amount: amount };
+      document.getElementById('modal-service-tag').textContent = serviceName;
+      document.getElementById('modal-service-name').textContent = serviceName;
+      document.getElementById('modal-amount').textContent = '\u20b9' + amount;
+      document.getElementById('pay-name').value = '';
+      document.getElementById('pay-email').value = '';
+      document.getElementById('pay-phone').value = '';
+      document.getElementById('pay-name').classList.remove('err');
+      document.getElementById('pay-email').classList.remove('err');
+      resetConfirmBtn();
+      document.getElementById('pay-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() { document.getElementById('pay-name').focus(); }, 100);
+    }
+
+    function closePayModal() {
+      document.getElementById('pay-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+      resetConfirmBtn();
+    }
+
+    function resetConfirmBtn() {
+      var btn = document.getElementById('btn-pay-confirm');
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg> Pay Securely';
+    }
+
+    document.getElementById('pay-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePayModal();
+    });
+    document.getElementById('pay-close').addEventListener('click', closePayModal);
+
+    document.getElementById('success-close').addEventListener('click', function() {
+      document.getElementById('success-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    document.getElementById('btn-pay-confirm').addEventListener('click', function() {
+      var name = document.getElementById('pay-name').value.trim();
+      var email = document.getElementById('pay-email').value.trim();
+      var phone = document.getElementById('pay-phone').value.trim();
+      var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      document.getElementById('pay-name').classList.toggle('err', !name);
+      document.getElementById('pay-email').classList.toggle('err', !emailValid);
+      if (!name || !emailValid) return;
+
+      this.disabled = true;
+      this.innerHTML = '&#9203; Opening checkout...';
+
+      var options = {
+        key: 'rzp_live_S6cBvQpBVeW83r',
+        amount: currentService.amount * 100,
+        currency: 'INR',
+        name: 'Zenvyte Labs (via Ariba Impex)',
+        description: currentService.name,
+        image: 'logo1.png',
+        prefill: { name: name, email: email, contact: phone },
+        notes: { service: currentService.name, customer_email: email },
+        theme: { color: '#00e676' },
+        handler: function(response) {
+          closePayModal();
+          document.getElementById('success-pid').textContent = 'Payment ID: ' + response.razorpay_payment_id;
+          document.getElementById('success-overlay').classList.add('open');
+        },
+        modal: { ondismiss: function() { resetConfirmBtn(); } }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.on('payment.failed', function(response) {
+        resetConfirmBtn();
+        alert('Payment failed: ' + response.error.description);
+      });
+      rzp.open();
+    });
+
+    ['pay-name','pay-email','pay-phone'].forEach(function(id) {
+      document.getElementById(id).addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') document.getElementById('btn-pay-confirm').click();
       });
     });
   </script>
