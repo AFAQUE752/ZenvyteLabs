@@ -346,6 +346,192 @@
     }
     .terms-note strong { color: var(--red); }
 
+    /* ============================================
+       DEVELOPER PORTFOLIO SECTION
+       ============================================ */
+    #developer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 100px clamp(20px, 5vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    #developer::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,188,212,0.04) 0%, transparent 65%);
+      top: 0; right: -100px;
+      pointer-events: none;
+    }
+    .dev-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* top bio row */
+    .dev-bio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+
+    .dev-identity { position: relative; }
+    .dev-handle {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); border: 1px solid rgba(0,188,212,0.22);
+      background: rgba(0,188,212,0.05); padding: 4px 12px; border-radius: 2px;
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+    }
+    .dev-handle::before { content: '◆'; font-size: 8px; }
+    .dev-identity h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 8px;
+    }
+    .dev-identity h2 .accent { color: var(--green); }
+    .dev-role-line {
+      font-size: 13px; letter-spacing: 0.1em; color: var(--text-dim);
+      margin-bottom: 24px; text-transform: uppercase;
+    }
+    .dev-desc {
+      font-size: 13px; color: var(--text-dim); line-height: 1.9;
+      font-weight: 300; max-width: 460px;
+    }
+    .dev-desc strong { color: var(--text); font-weight: 500; }
+
+    /* stat pills */
+    .dev-stats {
+      display: flex; gap: 0; margin-top: 32px;
+      border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+    }
+    .dev-stat {
+      flex: 1; padding: 16px 20px; border-right: 1px solid var(--border);
+      background: var(--bg2); text-align: center;
+    }
+    .dev-stat:last-child { border-right: none; }
+    .dev-stat-num {
+      font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800;
+      color: var(--green); line-height: 1; margin-bottom: 4px;
+    }
+    .dev-stat-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+
+    /* spec cards right col */
+    .dev-specs { display: flex; flex-direction: column; gap: 10px; }
+    .dev-spec-row {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 3px;
+      padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;
+      transition: border-color 0.25s;
+    }
+    .dev-spec-row:hover { border-color: var(--border2); }
+    .dev-spec-key {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mute);
+    }
+    .dev-spec-val { font-size: 13px; color: var(--text); font-weight: 500; }
+    .dev-spec-val.online { color: var(--green); }
+    .dev-spec-val.online::before { content: '● '; font-size: 9px; }
+
+    /* contact links under specs */
+    .dev-contact-links {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;
+    }
+    .dev-contact-link {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 3px;
+      padding: 12px 16px; text-decoration: none; transition: border-color 0.25s, background 0.25s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .dev-contact-link:hover { border-color: var(--green); background: rgba(0,230,118,0.04); }
+    .dev-contact-icon { font-size: 16px; }
+    .dev-contact-info { display: flex; flex-direction: column; }
+    .dev-contact-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mute); }
+    .dev-contact-val { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+    /* SKILLS BARS */
+    .dev-skills-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--border);
+      margin-bottom: 48px;
+    }
+    .dev-skill-col {
+      background: var(--bg2); padding: 32px 28px;
+    }
+    .dev-skill-col-title {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); padding-bottom: 16px; margin-bottom: 20px;
+      border-bottom: 1px solid rgba(0,188,212,0.15);
+    }
+    .dev-skill-item { margin-bottom: 18px; }
+    .dev-skill-item:last-child { margin-bottom: 0; }
+    .dev-skill-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 7px;
+    }
+    .dev-skill-name { font-size: 12px; color: var(--text); font-weight: 500; }
+    .dev-skill-sub { font-size: 10px; color: var(--text-mute); }
+    .dev-skill-track {
+      height: 2px; background: rgba(255,255,255,0.05); border-radius: 0; overflow: hidden;
+    }
+    .dev-skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green), rgba(0,230,118,0.4));
+      width: 0; transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dev-skill-fill.animated { width: var(--level); }
+
+    /* SERVERS BUILT */
+    .dev-servers-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 24px;
+    }
+    .dev-servers-header h3 {
+      font-size: clamp(1rem, 2vw, 1.3rem); margin: 0;
+    }
+    .dev-servers-count {
+      font-size: 11px; color: var(--text-mute); letter-spacing: 0.08em;
+    }
+    .dev-servers-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px; background: var(--border);
+    }
+    .dev-server-chip {
+      background: var(--bg2); padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: background 0.25s; position: relative; overflow: hidden;
+    }
+    .dev-server-chip::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .dev-server-chip:hover { background: var(--surface); }
+    .dev-server-chip:hover::before { transform: scaleX(1); }
+    .dev-server-chip.type-boxpvp::before { background: #ff6600; }
+    .dev-server-chip.type-lifesteal::before { background: #ff3366; }
+    .dev-server-chip.type-smp::before { background: var(--green); }
+    .dev-server-chip.type-prison::before { background: var(--text-dim); }
+    .dev-server-chip.type-mod::before { background: var(--cyan); }
+    .dev-server-badge {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 2px; display: inline-block; width: fit-content;
+    }
+    .badge-boxpvp  { background: rgba(255,102,0,0.15); color: #ff6600; border: 1px solid rgba(255,102,0,0.25); }
+    .badge-lifesteal { background: rgba(255,51,102,0.15); color: #ff3366; border: 1px solid rgba(255,51,102,0.25); }
+    .badge-smp     { background: rgba(0,230,118,0.1); color: var(--green); border: 1px solid rgba(0,230,118,0.2); }
+    .badge-prison  { background: rgba(90,122,148,0.15); color: var(--text-dim); border: 1px solid rgba(90,122,148,0.25); }
+    .badge-mod     { background: rgba(0,188,212,0.1); color: var(--cyan); border: 1px solid rgba(0,188,212,0.2); }
+    .dev-server-name { font-size: 13px; font-weight: 600; color: var(--white); font-family: 'Syne', sans-serif; }
+    .dev-server-link {
+      font-size: 11px; color: var(--text-mute); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .dev-server-link:hover { color: var(--green); }
+
+    /* "more" chip */
+    .dev-server-more {
+      background: transparent; border: 1px dashed rgba(30,45,61,0.8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--text-mute); letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 18px 20px;
+    }
+
     /* AFFILIATE */
     #affiliate { background: var(--bg); border-top: 1px solid var(--border); }
     .affiliate-inner { max-width: 760px; margin: 0 auto; text-align: center; }
@@ -523,12 +709,16 @@
       .process-steps::before { display: none; }
       .process-steps { gap: 32px; }
       .process-step { padding-right: 0; }
+      .dev-bio-row { grid-template-columns: 1fr; gap: 40px; }
+      .dev-skills-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
       .hero-title { font-size: 2.6rem; }
+      .dev-stats { flex-wrap: wrap; }
+      .dev-contact-links { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -546,6 +736,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#terms">Terms</a></li>
+      <li><a href="#developer">Developer</a></li>
       <li><a href="#affiliate">Partners</a></li>
       <li><a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="nav-cta">Open Ticket</a></li>
     </ul>
@@ -560,6 +751,7 @@
     <a href="#services">Services</a>
     <a href="#process">Process</a>
     <a href="#terms">Terms</a>
+    <a href="#developer">Developer</a>
     <a href="#affiliate">Partners</a>
     <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer" class="mob-cta">Open Ticket →</a>
   </div>
@@ -870,6 +1062,276 @@
     </div>
   </section>
 
+  <!-- =============================================
+       DEVELOPER SECTION
+       ============================================= -->
+  <section id="developer">
+    <div class="dev-inner">
+
+      <!-- Header -->
+      <div class="section-header reveal" style="margin-bottom: 48px;">
+        <div class="tag">The Developer</div>
+        <h2>Who builds your server.</h2>
+        <p>Meet the person behind the setups — 5+ years in the Minecraft server scene, with a real portfolio to show for it.</p>
+      </div>
+
+      <!-- Bio Row -->
+      <div class="dev-bio-row">
+
+        <!-- Left: identity + desc + stats -->
+        <div class="dev-identity reveal">
+          <div class="dev-handle">mrafaque.dev</div>
+          <h2>Md Afaque<br><span class="accent">Ashraf</span></h2>
+          <div class="dev-role-line">Full-Stack MC Developer · Kolkata, India</div>
+          <p class="dev-desc">
+            I'm a <strong>full-stack Minecraft server developer</strong> with 5+ years building servers from the ground up — custom plugin stacks, economy systems, proxy networks, and everything in between.<br><br>
+            My core specialties are <strong>BoxPvP</strong> and <strong>Lifesteal</strong>. I've shipped over 10 servers and I handle the full pipeline: concept → setup → config → deployment → maintenance.
+          </p>
+          <div class="dev-stats">
+            <div class="dev-stat">
+              <div class="dev-stat-num">5+</div>
+              <div class="dev-stat-label">Yrs Exp</div>
+            </div>
+            <div class="dev-stat">
+              <div class="dev-stat-num">10+</div>
+              <div class="dev-stat-label">Servers</div>
+            </div>
+            <div class="dev-stat">
+              <div class="dev-stat-num">2</div>
+              <div class="dev-stat-label">Specialties</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: spec rows + contact links -->
+        <div class="reveal rd1">
+          <div class="dev-specs">
+            <div class="dev-spec-row">
+              <span class="dev-spec-key">Specialization</span>
+              <span class="dev-spec-val">BoxPvP &amp; Lifesteal Servers</span>
+            </div>
+            <div class="dev-spec-row">
+              <span class="dev-spec-key">Core Stack</span>
+              <span class="dev-spec-val">Paper · BungeeCord · Velocity</span>
+            </div>
+            <div class="dev-spec-row">
+              <span class="dev-spec-key">Location</span>
+              <span class="dev-spec-val">Kolkata, India · IST (UTC+5:30)</span>
+            </div>
+            <div class="dev-spec-row">
+              <span class="dev-spec-key">Portfolio</span>
+              <span class="dev-spec-val"><a href="https://mrafaque.qzz.io" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">mrafaque.qzz.io ↗</a></span>
+            </div>
+            <div class="dev-spec-row">
+              <span class="dev-spec-key">Status</span>
+              <span class="dev-spec-val online">Available for Projects</span>
+            </div>
+          </div>
+          <div class="dev-contact-links">
+            <a href="https://wa.me/917980903434" target="_blank" rel="noopener" class="dev-contact-link">
+              <span class="dev-contact-icon">📱</span>
+              <div class="dev-contact-info">
+                <span class="dev-contact-label">WhatsApp</span>
+                <span class="dev-contact-val">+91 79809 03434</span>
+              </div>
+            </a>
+            <a href="https://github.com/AFAQUE752" target="_blank" rel="noopener" class="dev-contact-link">
+              <span class="dev-contact-icon">🐙</span>
+              <div class="dev-contact-info">
+                <span class="dev-contact-label">GitHub</span>
+                <span class="dev-contact-val">AFAQUE752</span>
+              </div>
+            </a>
+            <a href="https://status.mrafaque.qzz.io/" target="_blank" rel="noopener" class="dev-contact-link">
+              <span class="dev-contact-icon">✅</span>
+              <div class="dev-contact-info">
+                <span class="dev-contact-label">Server Status</span>
+                <span class="dev-contact-val">status.mrafaque.qzz.io</span>
+              </div>
+            </a>
+            <a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener" class="dev-contact-link">
+              <span class="dev-contact-icon">💬</span>
+              <div class="dev-contact-info">
+                <span class="dev-contact-label">Discord</span>
+                <span class="dev-contact-val">Open a Ticket</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /dev-bio-row -->
+
+      <!-- Skills -->
+      <div class="reveal" style="margin-bottom: 12px;">
+        <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-mute);margin-bottom:16px;">Technical Skills</p>
+      </div>
+      <div class="dev-skills-row reveal">
+        <div class="dev-skill-col">
+          <div class="dev-skill-col-title">Server Setup</div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Spigot / Paper</span>
+              <span class="dev-skill-sub">Core</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:95%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">BungeeCord / Velocity</span>
+              <span class="dev-skill-sub">Proxy</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:88%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Plugin Config (YAML)</span>
+              <span class="dev-skill-sub">Config</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:97%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Server Optimization</span>
+              <span class="dev-skill-sub">TPS / Lag</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:90%"></div></div>
+          </div>
+        </div>
+        <div class="dev-skill-col">
+          <div class="dev-skill-col-title">Game Systems</div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">BoxPvP Servers</span>
+              <span class="dev-skill-sub">Specialty</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:98%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Lifesteal Servers</span>
+              <span class="dev-skill-sub">Specialty</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:95%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Economy Design</span>
+              <span class="dev-skill-sub">In-Game</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:88%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Anti-Cheat Setup</span>
+              <span class="dev-skill-sub">Config</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:85%"></div></div>
+          </div>
+        </div>
+        <div class="dev-skill-col">
+          <div class="dev-skill-col-title">Management</div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Permissions (LuckPerms)</span>
+              <span class="dev-skill-sub">Access</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:92%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Hosting / VPS</span>
+              <span class="dev-skill-sub">Deploy</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:82%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Discord Integration</span>
+              <span class="dev-skill-sub">Bots / Webhooks</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:88%"></div></div>
+          </div>
+          <div class="dev-skill-item">
+            <div class="dev-skill-meta">
+              <span class="dev-skill-name">Troubleshooting</span>
+              <span class="dev-skill-sub">Server Logs</span>
+            </div>
+            <div class="dev-skill-track"><div class="dev-skill-fill" style="--level:90%"></div></div>
+          </div>
+        </div>
+      </div><!-- /dev-skills-row -->
+
+      <!-- Servers Built -->
+      <div class="dev-servers-header reveal" style="margin-top:56px;">
+        <h3>Servers Built</h3>
+        <span class="dev-servers-count">10+ projects shipped</span>
+      </div>
+      <div class="dev-servers-grid reveal">
+
+        <a href="https://incineratorbox.in" target="_blank" rel="noopener" class="dev-server-chip type-boxpvp" style="grid-column:span 2;">
+          <span class="dev-server-badge badge-boxpvp">BoxPvP · Featured</span>
+          <span class="dev-server-name">Incinerator Box</span>
+          <span class="dev-server-link">incineratorbox.in ↗</span>
+        </a>
+
+        <div class="dev-server-chip type-boxpvp">
+          <span class="dev-server-badge badge-boxpvp">BoxPvP</span>
+          <span class="dev-server-name">Arcana Box</span>
+        </div>
+
+        <div class="dev-server-chip type-lifesteal">
+          <span class="dev-server-badge badge-lifesteal">Lifesteal</span>
+          <span class="dev-server-name">ArialMC</span>
+        </div>
+
+        <div class="dev-server-chip type-smp">
+          <span class="dev-server-badge badge-smp">SMP</span>
+          <span class="dev-server-name">MiniatureMC</span>
+        </div>
+
+        <div class="dev-server-chip type-lifesteal">
+          <span class="dev-server-badge badge-lifesteal">Lifesteal</span>
+          <span class="dev-server-name">Cozmolife</span>
+        </div>
+
+        <div class="dev-server-chip type-smp">
+          <span class="dev-server-badge badge-smp">SMP</span>
+          <span class="dev-server-name">CrashMC</span>
+        </div>
+
+        <div class="dev-server-chip type-prison">
+          <span class="dev-server-badge badge-prison">Prison</span>
+          <span class="dev-server-name">StonePrison</span>
+        </div>
+
+        <div class="dev-server-chip type-boxpvp">
+          <span class="dev-server-badge badge-boxpvp">BoxPvP</span>
+          <span class="dev-server-name">StoneBox</span>
+        </div>
+
+        <div class="dev-server-chip type-boxpvp">
+          <span class="dev-server-badge badge-boxpvp">BoxPvP</span>
+          <span class="dev-server-name">RedPandaBox</span>
+        </div>
+
+        <div class="dev-server-chip type-smp">
+          <span class="dev-server-badge badge-smp">SMP</span>
+          <span class="dev-server-name">Dagvuan SMP</span>
+        </div>
+
+        <a href="https://discord.gg/9G9t6Tx6P9" target="_blank" rel="noopener" class="dev-server-chip type-mod">
+          <span class="dev-server-badge badge-mod">BoxPvP · Mod</span>
+          <span class="dev-server-name">Shimmering BoxPvP</span>
+          <span class="dev-server-link">Join Discord ↗</span>
+        </a>
+
+        <div class="dev-server-more">+ More &amp; Counting</div>
+
+      </div><!-- /dev-servers-grid -->
+
+    </div>
+  </section>
+
   <!-- AFFILIATE -->
   <section id="affiliate">
     <div class="section-inner">
@@ -932,6 +1394,7 @@
           <li><a href="#features">What We Do</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#developer">Developer</a></li>
           <li><a href="#affiliate">Affiliates</a></li>
         </ul>
       </div>
@@ -940,6 +1403,7 @@
         <ul>
           <li><a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer">Open a Ticket</a></li>
           <li><a href="https://discord.gg/3HwVsgER3B" target="_blank" rel="noopener noreferrer">Discord Server</a></li>
+          <li><a href="https://mrafaque.qzz.io" target="_blank" rel="noopener noreferrer">Dev Portfolio</a></li>
         </ul>
       </div>
     </div>
@@ -969,7 +1433,16 @@
     }));
 
     const ro = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          // Animate skill bars inside this element
+          e.target.querySelectorAll('.dev-skill-fill').forEach(bar => {
+            setTimeout(() => bar.classList.add('animated'), 200);
+          });
+          ro.unobserve(e.target);
+        }
+      });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
